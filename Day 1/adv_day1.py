@@ -40,7 +40,7 @@ def customMap(func, arr):
 # Main app
 def main():
     # total sum of required fuel (for moduels 'n fuel)
-    print("Total Required Fuel is : %d" % (sumBy(fuelCalculator,  customMap(int, fileReader("input.txt")) )))
+    print("Total Required Fuel is : %d" % (sumBy(fuelCalculator,  customMap(int, fileReader("d:/Gatos/Projects/Python/Advent of Code/Day 1/input.txt")) )))
 
 # Start the main program
 if __name__ == "__main__":
