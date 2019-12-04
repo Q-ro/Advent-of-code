@@ -9,11 +9,15 @@ import array
 import math
 
 # reads a file and returns it as an array of the file lines
+
+
 def fileReader(path):
     f = open(path, "r")
     return f.readlines()
 
 # return the amount of fuel needed for a given mass and it's fuel
+
+
 def fuelCalculator(mass):
     fuel = (math.floor(mass/3) - 2)
     if(fuel <= 0):
@@ -22,25 +26,33 @@ def fuelCalculator(mass):
         return fuelCalculator(fuel) + fuel
 
 # custom sumBy implementation
+
+
 def sumBy(func, arr):
     tempSum = 0
     for x in arr:
-        tempSum +=func(x)
-        pass       
+        tempSum += func(x)
+        pass
     return tempSum
 
 # custom Map implementation
+
+
 def customMap(func, arr):
-    tempSum = []
+    tempArray = []
     for x in arr:
-        tempSum.append(func(x))
-        pass       
-    return tempSum
+        tempArray.append(func(x))
+        pass
+    return tempArray
 
 # Main app
+
+
 def main():
     # total sum of required fuel (for moduels 'n fuel)
-    print("Total Required Fuel is : %d" % (sumBy(fuelCalculator,  customMap(int, fileReader("d:/Gatos/Projects/Python/Advent of Code/Day 1/input.txt")) )))
+    print("Total Required Fuel is : %d" %
+          (sumBy(fuelCalculator,  customMap(int, fileReader("Day 1\input.txt")))))
+
 
 # Start the main program
 if __name__ == "__main__":
