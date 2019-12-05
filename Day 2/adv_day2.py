@@ -26,7 +26,7 @@ def tapeReader(tape):
         currentOperation = tape[currentPosition]
         currentInstruction = tape[currentPosition: currentPosition+4]
 
-        print("Current instruction %a" % currentInstruction)
+        # print("Current instruction %a" % currentInstruction)
 
         # Kill the program
         if (currentOperation == 99):
@@ -66,35 +66,28 @@ def customMap(func, arr):
 # Main App
 def main():
 
-    noun = -1
-    verb = 0
-
     while True:
-        noun += 1
 
         # read the input file, remove special characters and store them into a a list
         programTape = customMap(int,  fileReader(
             "Day 2\input.txt").rstrip().split(","))
 
         # replace the given positions of the tape with the given numbers
+        noun  = random.randint(0, 99)
+        verb  = random.randint(0, 99)
         programTape[1] = noun
         programTape[2] = verb
 
         endTape = tapeReader(programTape)
-        print("Verb :")
-        print(verb)
-        print("Noun :")
-        print(noun)
-        print("EndTape :")
-        print(endTape[0])
+        # print("Verb :")
+        # print(verb)
+        # print("Noun :")
+        # print(noun)
+        # print("EndTape :")
+        # print(endTape[0])
 
         if endTape[0] == 19690720:
             break
-
-        if noun == 99:
-            verb += 1
-            noun = 0
-            pass
 
     print("End tape :")
     print(endTape)
