@@ -51,7 +51,7 @@ def customMap(func, arr):
 def main():
     # total sum of required fuel (for moduels 'n fuel)
     print("Total Required Fuel is : %d" %
-          (sumBy(fuelCalculator,  customMap(int, fileReader("Day 1\input.txt")))))
+          (sumBy(fuelCalculator,  customMap(int, fileReader(r"Day 1\input.txt")))))
 
 
 # Start the main program

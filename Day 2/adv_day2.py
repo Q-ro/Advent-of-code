@@ -70,7 +70,7 @@ def main():
 
         # read the input file, remove special characters and store them into a a list
         programTape = customMap(int,  fileReader(
-            "Day 2\input.txt").rstrip().split(","))
+            r"Day 2\input.txt").rstrip().split(","))
 
         # replace the given positions of the tape with the given numbers
         noun  = random.randint(0, 99)
