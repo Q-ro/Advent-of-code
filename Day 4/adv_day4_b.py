@@ -1,15 +1,17 @@
 '''
 Author: Andres Mrad (Q-ro)
-Date: Saturday 14/December/2019 @ 18:54:10
-Description:  Solution to the Day 4 puzzle (Part 1) 
+Date: Tuesday 17/December/2019 @ 18:24:49
+Description:  Solution to puzzle 4 (Part 2)
 '''
+
+# import
+import itertools
 
 _input = "109165-576723"
 
-
 # ====== Filters
 
-# Going from left to right, the digits never decrease; they only ever 
+# Going from left to right, the digits never decrease; they only ever
 def filterDigitIncrease(password):
     for i in range(len(password)-1):
         if int(password[i]) > int(password[i+1]):
@@ -17,19 +19,14 @@ def filterDigitIncrease(password):
 
     return True
 
-# Two adjacent digits are the same (like 22 in 122345)
-def filterDoubleDigit(password):
-    digitRepeatCount = 0
-    for i in range(len(password)-1):
-        if int(password[i]) == int(password[i+1]):
-            digitRepeatCount += 1
-    
-    if digitRepeatCount > 0:
-        return True
-    
+# the two adjacent matching digits are not part of a larger group of matching digits.
+def noGroupFilter(password):    
+    for group in [list(group) for k,group in itertools.groupby(password)]:
+        if len(group) == 2:
+            return True
     return False
 
-def passwordPossibilityCounter(passwordRangeStart,passwordRangeEnd):
+def passwordPossibilityCounter(passwordRangeStart, passwordRangeEnd):
     possiblePasswordCount = 0
     print(passwordRangeStart)
     print(len(str(passwordRangeStart)))
@@ -40,17 +37,18 @@ def passwordPossibilityCounter(passwordRangeStart,passwordRangeEnd):
         if len(passStrVal) != 6:
             continue
         # Evaluate if the number combination is a valid password
-        if filterDigitIncrease(passStrVal) and filterDoubleDigit(passStrVal):
+        if filterDigitIncrease(passStrVal) and noGroupFilter(passStrVal):
             possiblePasswordCount += 1
 
     return possiblePasswordCount
 
-# Main App
+# Main app
+
+
 def main():
     passwordRangeStart, passwordRangeEnd = map(int, _input.strip().split('-'))
-    print(passwordPossibilityCounter(passwordRangeStart,passwordRangeEnd))
+    print(passwordPossibilityCounter(passwordRangeStart, passwordRangeEnd))
 
 
-# Entry point for the program
 if __name__ == "__main__":
     main()
