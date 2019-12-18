@@ -1,23 +1,19 @@
-"""
+'''
 Author: Andres Mrad (Q-ro)
-Date: Tuesday 03/December/2019 @ 15:02:41
-Description:  Solution to day 2 puzzle
-"""
+Date: Tuesday 17/December/2019 @ 19:33:20
+Description:  Solution to Day 5 puzzle (Part 1)
+'''
 
 # Imports
 import random
 
 # Reads the file and returns it contents
-
-
 def fileReader(path):
     with open(path, "r") as filehandle:
         filecontent = filehandle.read()
     return filecontent
 
 # Takes a list and runs the program as the instructions come in
-
-
 def tapeReader(tape):
     currentPosition = 0
     currentOperation = []
@@ -25,8 +21,6 @@ def tapeReader(tape):
     while True:
         currentOperation = tape[currentPosition]
         currentInstruction = tape[currentPosition: currentPosition+4]
-
-        # print("Current instruction %a" % currentInstruction)
 
         # Kill the program
         if (currentOperation == 99):
@@ -42,6 +36,16 @@ def tapeReader(tape):
         if (currentOperation == 2):
             tape[currentInstruction[3]] = tape[currentInstruction[1]] * \
                 tape[currentInstruction[2]]
+            pass
+
+        # Store value at a given position
+        if (currentOperation == 3):
+            
+            pass
+
+        # Outputs value at a given position
+        if (currentOperation == 4):
+            
             pass
 
         # Move to the next operation
