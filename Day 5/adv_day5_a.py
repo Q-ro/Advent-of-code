@@ -40,7 +40,8 @@ def tapeReader(tape):
 
         # Store value at a given position
         if (currentOperation == 3):
-            
+            #Get user input (?)
+            # store input in the given tape position
             pass
 
         # Outputs value at a given position
